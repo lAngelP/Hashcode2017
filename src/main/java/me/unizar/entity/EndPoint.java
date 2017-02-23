@@ -34,11 +34,15 @@ public class EndPoint {
 			if(ping > latDataCenter){
 				return -1;
 			}
+			break;
 		}
 		
+		Map<Integer, Integer> punt = new TreeMap<Integer, Integer>();
 		for(Integer id : cacheConnected.keySet()){
 			if(Data.getCache(id).isInCache(v)){
-				return -2;
+				punt.put(id, 50);
+			}else {
+				punt.put(id, 0);
 			}
 		}
 		
@@ -46,11 +50,22 @@ public class EndPoint {
 			List<Integer> ids = cacheConnectedPing.get(ping);
 			for(Integer id : ids){
 				if(Data.getCache(id).fitsVideo(v)){
-					return id;
+					punt.put(id, punt.get(id) + ping / 10);
+				}else {
+					punt.remove(id);
 				}
 			}
 		}
+		int minPing = Integer.MAX_VALUE;
+		int min = -1;
+		for (Integer ini : punt.keySet()) {
+			int ping = punt.get(ini);
+			if(minPing > punt.get(ini)) {
+				min = ini;
+				minPing = ping;
+			}
+		}
 		
-		return -1;
+		return min;
 	}
 }
