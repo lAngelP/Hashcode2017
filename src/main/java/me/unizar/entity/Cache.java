@@ -32,6 +32,7 @@ public class Cache {
 	
 	public void addVideo(Video v){
 		videos.add(v);
+		size -= v.getSize();
 	}
 
 	public void generateOutput(BufferedWriter w) throws IOException {

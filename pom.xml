@@ -46,7 +46,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.4</version>
 				<configuration>
-					<outputDirectory>/ci/${project.artifactId}</outputDirectory>
+					
 					<finalName>${project.artifactId}-${project.version}-${timestamp}</finalName>
 					<archive>
 						<manifest>

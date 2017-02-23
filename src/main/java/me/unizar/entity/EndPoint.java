@@ -38,7 +38,7 @@ public class EndPoint {
 		
 		for(Integer id : cacheConnected.keySet()){
 			if(Data.getCache(id).isInCache(v)){
-				return id;
+				return -2;
 			}
 		}
 		
