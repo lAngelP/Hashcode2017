@@ -36,7 +36,7 @@ public class Cache {
 
 	public void generateOutput(BufferedWriter w) throws IOException {
 		for (Video video : videos) {
-			w.write(" " + video.getId());
+			w.append(" " + video.getId());
 		}
 	}
 
