@@ -45,7 +45,7 @@ public class EndPoint {
 		for (Integer ping : cacheConnectedPing.keySet()) {
 			List<Integer> ids = cacheConnectedPing.get(ping);
 			for(Integer id : ids){
-				if(Data.getCache(id).isInCache(v)){
+				if(Data.getCache(id).fitsVideo(v)){
 					return id;
 				}
 			}

@@ -40,4 +40,8 @@ public class Cache {
 		}
 	}
 
+	public boolean hasVideos() {
+		return !videos.isEmpty();
+	}
+
 }

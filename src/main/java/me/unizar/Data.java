@@ -85,9 +85,11 @@ public class Data {
 	
 	public static void generateCache(BufferedWriter w) throws IOException{
 		for (Integer id : caches.keySet()) {
-			w.append(String.valueOf(id));
-			caches.get(id).generateOutput(w);
-			w.newLine();
+			if(caches.get(id).hasVideos()){
+				w.append(String.valueOf(id));
+				caches.get(id).generateOutput(w);
+				w.newLine();
+			}
 		}
 	}
 
