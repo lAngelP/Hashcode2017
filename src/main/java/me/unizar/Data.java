@@ -31,6 +31,8 @@ public class Data {
 		Data.cacheSize = Integer.parseInt(args[4]);
 		
 		videos = new ArrayList<Video>(vids);
+		endPoints = new TreeMap<Integer, EndPoint>();
+		caches = new TreeMap<Integer, Cache>();
 	}
 	
 	public static void createVideo(int size){
@@ -92,5 +94,4 @@ public class Data {
 			}
 		}
 	}
-
 }

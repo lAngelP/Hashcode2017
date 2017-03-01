@@ -40,9 +40,9 @@ public class EndPoint {
 		Map<Integer, Integer> punt = new TreeMap<Integer, Integer>();
 		for(Integer id : cacheConnected.keySet()){
 			if(Data.getCache(id).isInCache(v)){
-				punt.put(id, 50);
+				punt.put(id, 100);
 			}else {
-				punt.put(id, 0);
+				punt.put(id, 10);
 			}
 		}
 		
@@ -50,7 +50,7 @@ public class EndPoint {
 			List<Integer> ids = cacheConnectedPing.get(ping);
 			for(Integer id : ids){
 				if(Data.getCache(id).fitsVideo(v)){
-					punt.put(id, punt.get(id) + ping / 10);
+					punt.put(id, punt.get(id) - ping / 50);
 				}else {
 					punt.remove(id);
 				}
@@ -66,6 +66,6 @@ public class EndPoint {
 			}
 		}
 		
-		return min;
+		return minPing <= 10 ? -1 : min;
 	}
 }

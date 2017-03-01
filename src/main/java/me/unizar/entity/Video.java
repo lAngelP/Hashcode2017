@@ -20,6 +20,9 @@ public class Video {
 		return size;
 	}
 	
+	public static void cleanUp(){
+		vids = 0;
+	}
 	
 
 }
